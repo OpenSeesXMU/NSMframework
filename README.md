@@ -3,7 +3,7 @@
 **Non-intrusive Numerical Substructure Method (NSM) Framework for OpenSees**
 
 ## Overview
-[cite_start]This repository contains the source code for a non-intrusive framework capable of **automatic identification of damaged elements**, triggering of **twin substructure (TSM) refinement**, initialization of the refined substructure, and smooth force transition at the global–local interface[cite: 1].
+his repository contains the source code for a non-intrusive framework capable of **automatic identification of damaged elements**, triggering of **twin substructure (TSM) refinement**, initialization of the refined substructure, and smooth force transition at the global–local interface.
 
 The framework ensures full transparency and practical reproducibility by using standard socket communication to link global analysis models with fine-scale submodels.
 
@@ -12,14 +12,14 @@ The framework ensures full transparency and practical reproducibility by using s
 Based on the multi-level architecture, the folders are organized as follows:
 
 ### 📂 `level1/` (MSM Driver)
-[cite_start]**Role: Global Dynamic Analysis & Controller** [cite: 3]
+**Role: Global Dynamic Analysis & Controller** 
 * Acts as the **Main Structure Model (MSM)** driver.
 * Runs the global dynamic analysis.
 * Decides when to train or replace the model.
 * Exchanges boundary histories (displacement/velocity/acceleration) and interface forces with Level-2 via sockets.
 
 ### 📂 `level2/` (TSM Server)
-[cite_start]**Role: Fine Submodel Aggregator** [cite: 4]
+**Role: Fine Submodel Aggregator** 
 * Acts as the **Twin Substructure Model (TSM)** server.
 * Builds and solves the fine-scale submodel(s).
 * Collects reactions at interface nodes (e.g., nodes 65 and 165).
@@ -51,7 +51,7 @@ Contains common scripts for element assembly, material definitions, and geometri
 
 ## Workflow Summary
 
-[cite_start]The analysis proceeds through three main phases[cite: 10, 11]:
+The analysis proceeds through three main phases:
 
 1.  **Gravity Training**: Standard static analysis. Level-1 continuously pushes kinematics; Level-2 performs static analysis.
 2.  **Dynamic Training**: Triggered when `toUpdate=1`. Level-1 instructs Level-2 to train for `$steps`. Level-2 performs Newmark transient analysis and records sub-forces.
